@@ -23,6 +23,7 @@ def main():
     rate = 1
     avg_download = ''
     avg_upload = ''
+    error_sleepTime = 2
     
     log.add_str(f'start TestSpeed.', 'info')
     while now_time <= end_time:
@@ -32,12 +33,11 @@ def main():
                 speed_data = DoTest()
             except Exception as err:
                 now_time = time.time()
-                print(f"第{rate}次 時間{strftime(now_time)}")
+                print(f"報錯 時間{strftime(now_time)}")
                 print(f"error   : {err}\n")
                 
-                rate += 1
                 log.write_error(err)
-                time.sleep(1.5)
+                time.sleep(error_sleepTime)
             else:    
                 now_time = time.time()
                 
@@ -65,7 +65,7 @@ def main():
             print(f"報錯 時間{strftime(now_time)}")
             print(f"error   : {err}\n")
             
-            # rate += 1
+            time.sleep(error_sleepTime)
             log.write_error(err)
     log.add_str(f'finish Speedtest.', 'info')
     
