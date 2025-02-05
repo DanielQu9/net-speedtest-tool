@@ -1,3 +1,9 @@
+###################################################
+# Copyright (c) 2025 DanielQu9
+# This code is licensed under the MIT License.
+# See LICENSE file for details.
+###################################################
+
 import time
 from core.wait import wait
 from core.seedtime import seed_time
